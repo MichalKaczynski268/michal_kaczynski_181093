@@ -1,0 +1,168 @@
+/* 1. Zmienne CSS w :root oraz box-sizing dla całego dokumentu */
+:root {
+    --primary-color: #0b4f6c;
+    --accent-color: #d1345b;
+    --bg-light: #f7f9fa;
+    --text-color: #222222;
+    --border-color: #cccccc;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+/* 2. Wyśrodkowany kontener o maksymalnej szerokości 1100px */
+header,
+main,
+footer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* 3. Nawigacja Flexbox z zawijaniem wierszy */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+}
+
+nav a[aria-current="page"] {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* 4. Obrazy: skalowanie i zachowanie proporcji */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 5. Katalog produktów: Mobile-first (1 kolumna) */
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+.product-card .price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-top: auto;
+}
+
+/* 6. Formularz demonstracyjny */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea,
+button {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    font: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+/* 7. Tabela parametrów na produkt.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #ffffff;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+th,
+td {
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+thead th {
+    background-color: #eaeaea;
+}
+
+/* 8. Interakcja: hover i widoczny focus-visible dla klawiatury */
+a:hover,
+button:hover {
+    opacity: 0.85;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* 9. Widok na większe ekrany: od 768px (3 kolumny w katalogu) */
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
