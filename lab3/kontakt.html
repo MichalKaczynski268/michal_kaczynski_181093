@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt — VolleyShop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <p>VolleyShop — wszystko do siatkówki</p>
+
+        <nav aria-label="Menu główne">
+            <a href="index.html">Katalog</a>
+            <a href="produkt.html">Produkt</a>
+            <a href="kontakt.html" aria-current="page">Kontakt</a>
+            <button type="button" id="theme-toggle" aria-pressed="false">Tryb ciemny</button>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Formularz zapytania o produkt</h1>
+
+        <p class="form-info">
+            Podgląd lokalny. Formularz nie wysyła wiadomości.
+        </p>
+
+        <form id="kontakt-form" action="kontakt.html" method="get">
+            <p>
+                <label for="email">Adres e-mail (pole wymagane):</label>
+                <input type="email" id="email" name="email" required>
+            </p>
+
+            <p>
+                <label for="produkt">Produkt (pole wymagane):</label>
+                <select id="produkt" name="produkt" required>
+                    <option value="mikasa-v200w">Piłka siatkarska Mikasa V200W</option>
+                    <option value="koszulka-zaksa">Koszulka meczowa ZAKSA Kędzierzyn-Koźle</option>
+                    <option value="nakolanniki-mizuno">Nakolanniki siatkarskie Mizuno</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="ilosc">Liczba sztuk (od 1 do 5, pole wymagane):</label>
+                <input type="number" id="ilosc" name="ilosc" min="1" max="5" step="1" value="1" required>
+            </p>
+
+            <p id="live-price"></p>
+
+            <p>
+                <label for="wiadomosc">Treść zapytania (od 10 do 500 znaków, pole wymagane):</label>
+                <textarea id="wiadomosc" name="wiadomosc" minlength="10" maxlength="500" rows="5" required></textarea>
+                <span id="message-error" style="color: red;" hidden></span>
+            </p>
+
+            <p>
+                <button type="submit">Sprawdź zapytanie</button>
+            </p>
+        </form>
+
+        <section id="order-summary" hidden>
+            <h2>Podsumowanie zapytania</h2>
+            <p>Produkt: <span id="sum-product"></span></p>
+            <p>Ilość: <span id="sum-qty"></span></p>
+            <p>Wartość: <span id="sum-total"></span></p>
+            <p>Wiadomość: <span id="sum-msg"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>VolleyShop — projekt na laboratorium Programowania Aplikacji WWW.</p>
+    </footer>
+</body>
+</html>
