@@ -137,11 +137,7 @@ Kody odpowiedzi sprawdziłem w panelu Network.
 - 404 oznacza, że podana podstrona nie istnieje lub identyfikator jest niepoprawny.
 - 500 oznacza problem po stronie serwera, np. brak pliku podstrony zapisanej w mapie.
 
-## Co zostało do zrobienia
 
-Podstrona Filmy jest już w menu i ma swój plik.
-W zadaniu 3 dodam trzy filmy i sprawdzę odtwarzanie, linki
-oraz wygląd strony przy szerokości 360 px.
 
 
 
