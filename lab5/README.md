@@ -142,3 +142,38 @@ Kody odpowiedzi sprawdziłem w panelu Network.
 Podstrona Filmy jest już w menu i ma swój plik.
 W zadaniu 3 dodam trzy filmy i sprawdzę odtwarzanie, linki
 oraz wygląd strony przy szerokości 360 px.
+
+
+
+## Zadanie 3 — filmy
+
+Dodałem w html/filmy.html trzy filmy związane z siatkówką:
+podstawy odbicia dołem, zagrywkę i podstawowe umiejętności siatkarskie.
+
+Każdy film jest osadzony przez iframe, ma nagłówek, opisowy atrybut
+title oraz osobny link do materiału na YouTube.
+Autoodtwarzanie jest wyłączone.
+
+Odtwarzacze dopasowują szerokość do kontenera.
+Użyłem aspect-ratio oraz minimalnych wymiarów 200 × 200 px.
+
+### Sprawdzenie działania
+
+| Co sprawdziłem | Co miało się stać | Wynik |
+|---|---|---|
+| Otworzyłem Filmy z menu i uruchomiłem każdy materiał. | Wszystkie trzy filmy można odtworzyć bez wychodzenia ze strony. | Wszystkie trzy działają. |
+| Sprawdziłem stronę przed kliknięciem odtwarzania. | Filmy nie uruchamiają się automatycznie. | Żaden film nie uruchamia się sam. |
+| Kliknąłem link pod każdym odtwarzaczem. | Każdy link otwiera odpowiedni materiał na YouTube. | Wszystkie linki działają poprawnie. |
+| Ustawiłem szerokość widoku na 360 px. | Odtwarzacze mieszczą się na stronie i nie ma przewijania w poziomie. | Wszystko mieści się w widoku, bez przewijania na boki. |
+| Przeszedłem po stronie klawiszem Tab. | Można dotrzeć do linków pod filmami. | Linki są dostępne z klawiatury. |
+
+## Stan końcowy
+
+W lab5 pozostają trzy osobne wejścia:
+- index.php — podstrony ze wspólnym szablonem;
+- lab4.php — katalog z filtrem, formularzem i sesją;
+- status.php — odpowiedź dla AJAX.
+
+Treści podstron są w html/, a dane produktów w includes/produkty.php.
+Kolejną podstronę można dodać przez utworzenie fragmentu
+i dopisanie go do mapy w index.php.
