@@ -94,37 +94,40 @@ Odczytaj parametr idp.
 Jeżeli parametru nie ma lub jest pustym tekstem:
     ustaw alias glowna.
 
-Jeżeli parametr nie jest tekstem lub ma błędny format:
-    przygotuj odpowiedź HTTP 404.
-W przeciwnym razie:
-    spróbuj:
-        wczytać konfigurację i utworzyć połączenie PDO;
+Sprawdź, czy alias jest tekstem i ma poprawny format.
+Zapamiętaj wynik sprawdzenia.
 
+Przygotuj pustą listę menu i brak rekordu strony.
+
+Spróbuj:
+    wczytać konfigurację i utworzyć połączenie PDO;
+
+    pobrać osobnym zapytaniem opublikowane strony do menu,
+        uporządkowane według id;
+
+    jeżeli alias ma poprawny format:
         pobrać stronę przez prepare() i execute(),
             przekazując alias jako parametr,
             z warunkiem status = 1 i LIMIT 1;
 
-        pobrać osobnym zapytaniem opublikowane strony do menu,
-            uporządkowane według id;
+    jeżeli nie pobrano rekordu strony:
+        ustawić HTTP 404 i przygotować komunikat;
+    w przeciwnym razie:
+        przygotować tytuł i treść strony.
 
-        jeżeli strony nie znaleziono:
-            przygotuj HTTP 404 i link powrotny;
-        w przeciwnym razie:
-            przygotuj tytuł i treść strony.
-
-    w razie wyjątku połączenia lub któregokolwiek zapytania:
-        zapisz szczegóły w lokalnym logu;
-        przygotuj HTTP 500 i ogólny komunikat.
-
-Przed wysłaniem HTML ustaw odpowiedni status HTTP.
+W razie wyjątku połączenia lub któregokolwiek zapytania:
+    zapisz szczegóły w lokalnym logu;
+    ustaw HTTP 500;
+    przygotuj ogólny komunikat;
+    wyczyść rekord strony i menu.
 
 Wyświetl wspólny szablon:
     tytuł i etykiety menu przez htmlspecialchars() z UTF-8;
     aktywny link z aria-current="page";
     treść jako własny, sprawdzony fragment HTML z bazy,
-        bez wykonywania PHP.
+        bez wykonywania PHP;
+    przy błędzie komunikat i link do strony głównej.
 ```
-
 ## Testy — kroki i wyniki
 
 Kody HTTP sprawdzałem w DevTools → Network.
